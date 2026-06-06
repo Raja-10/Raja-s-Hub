@@ -4,13 +4,13 @@ import { useEffect } from 'react';
 import Lenis from '@studio-freight/lenis';
 import Navbar from '@/components/Navbar';
 import Hero from '@/components/sections/Hero';
-import About from '@/components/sections/About';
-import Academics from '@/components/sections/Academics';
-import Research from '@/components/sections/Research';
-import Projects from '@/components/sections/Projects';
-import Swimming from '@/components/sections/Swimming';
-import Travel from '@/components/sections/Travel';
-import Achievements from '@/components/sections/Achievements';
+// import About from '@/components/sections/About';
+// import Academics from '@/components/sections/Academics';
+import ProfessionalJourney from '@/components/sections/ProfessionalJourney';
+import Communities from '@/components/sections/Communities';
+import SportsAndHobbies from '@/components/sections/SportsAndHobbies';
+import LearningCorner from '@/components/sections/LearningCorner';
+import ThankYou from '@/components/sections/ThankYou';
 import Memories from '@/components/sections/Memories';
 import Contact from '@/components/sections/Contact';
 import Footer from '@/components/Footer';
@@ -41,13 +41,13 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <About />
-        <Academics />
-        <Research />
-        <Projects />
-        <Swimming />
-        <Travel />
-        <Achievements />
+        {/* <About /> */}
+        {/* <Academics /> */}
+        <ProfessionalJourney />
+        <Communities />
+        <SportsAndHobbies />
+        <LearningCorner />
+        <ThankYou />
         <Memories />
         <Contact />
       </main>

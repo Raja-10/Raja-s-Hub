@@ -1,8 +1,9 @@
 'use client';
-
+import { heroData } from "@/data/hero";
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { ArrowDown, Github, Linkedin, Mail } from 'lucide-react';
+import {ArrowDown,Github,Linkedin,Mail,Instagram,} from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -51,8 +52,9 @@ export default function Hero() {
             variants={item}
             className="font-display text-7xl md:text-9xl lg:text-[10rem] leading-[0.9] tracking-tight mb-6"
           >
-            <span className="block text-white">Raja</span>
-            <span className="block gradient-text">Yogeshwar</span>
+          <span className="block text-white">
+            {heroData.name}
+          </span>
           </motion.h1>
 
           {/* Tagline */}
@@ -60,9 +62,11 @@ export default function Hero() {
             variants={item}
             className="text-secondary text-xl md:text-2xl font-light max-w-xl mb-10 leading-relaxed"
           >
-            Researcher. Builder. Explorer.
+            {heroData.roles.join(". ")}.
             <br />
-            <span className="text-white/50 text-lg">Always learning. Forever curious.</span>
+            <span className="text-white/50 text-lg">
+            {heroData.tagline}
+            </span>
           </motion.p>
 
           {/* Quote */}
@@ -71,43 +75,98 @@ export default function Hero() {
             className="border-l-2 border-accent/40 pl-5 mb-12 max-w-md"
           >
             <p className="text-secondary text-sm italic leading-relaxed">
-              &ldquo;We do not remember days, we remember moments.&rdquo;
+              "{heroData.quote}"
             </p>
-            <cite className="text-white/30 text-xs mt-1 block not-italic font-mono">— Cesare Pavese</cite>
+
+            <cite className="text-white/30 text-xs mt-1 block not-italic font-mono">
+              — Rajayogeshwar G
+            </cite>
           </motion.blockquote>
 
           {/* Actions */}
-          <motion.div variants={item} className="flex flex-wrap items-center gap-4 mb-20">
+          <motion.div
+            variants={item}
+            className="flex flex-wrap items-center gap-4 mb-20"
+          >
             <button
-              onClick={() => document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })}
+              onClick={() =>
+                document
+                  .querySelector("#journey")
+                  ?.scrollIntoView({ behavior: "smooth" })
+              }
               className="flex items-center gap-2 px-6 py-3 rounded-xl bg-accent text-white text-sm font-medium hover:bg-accent-dim transition-all duration-200 hover:scale-105"
             >
               Explore My World
               <ArrowDown size={14} />
             </button>
-            <button
-              onClick={() => document.querySelector('#contact')?.scrollIntoView({ behavior: 'smooth' })}
-              className="flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 text-secondary text-sm font-medium hover:text-white hover:border-white/20 transition-all duration-200"
-            >
-              Get in Touch
-            </button>
+
+            <div className="flex items-center gap-4 px-5 py-3 rounded-xl border border-white/10 bg-white/[0.03] backdrop-blur-sm">
+              <span className="text-secondary text-sm font-medium">
+                Get In Touch
+              </span>
+
+              <div className="w-px h-4 bg-white/10" />
+
+              {/* <a
+                href={heroData.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-secondary hover:text-white transition-colors"
+              >
+                <Github size={16} />
+              </a> */}
+
+              <a
+                href={heroData.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-secondary hover:text-white transition-colors"
+              >
+                <Linkedin size={16} />
+              </a>
+
+              <a
+                href={heroData.instagram}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-secondary hover:text-white transition-colors"
+              >
+                <Instagram size={16} />
+              </a>
+
+              <a
+                href={heroData.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-secondary hover:text-white transition-colors"
+              >
+                <FaWhatsapp size={15} />
+              </a>
+
+              <a
+                href={heroData.email}
+                className="text-secondary hover:text-white transition-colors"
+              >
+                <Mail size={16} />
+              </a>
+            </div>
           </motion.div>
 
           {/* Socials */}
-          <motion.div variants={item} className="flex items-center gap-4">
-            <a href="https://github.com" target="_blank" rel="noopener noreferrer"
+          {/* <motion.div variants={item} className="flex items-center gap-4">
+            <a href={heroData.github} target="_blank" rel="noopener noreferrer"
                className="p-2 rounded-lg text-secondary hover:text-white hover:bg-white/5 transition-all duration-200">
               <Github size={18} />
             </a>
-            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+            <a href={heroData.linkedin} target="_blank" rel="noopener noreferrer"
                className="p-2 rounded-lg text-secondary hover:text-white hover:bg-white/5 transition-all duration-200">
               <Linkedin size={18} />
             </a>
-            <a href="mailto:raja@example.com"
+            <a href={heroData.email}
                className="p-2 rounded-lg text-secondary hover:text-white hover:bg-white/5 transition-all duration-200">
               <Mail size={18} />
             </a>
-          </motion.div>
+          </motion.div> */}
         </motion.div>
       </motion.div>
 
@@ -127,7 +186,7 @@ export default function Hero() {
       </motion.div>
 
       {/* Life Timeline strip at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 border-t border-white/5 bg-white/[0.02] backdrop-blur-sm">
+      {/* <div className="absolute bottom-0 left-0 right-0 border-t border-white/5 bg-white/[0.02] backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-24 py-4">
           <div className="flex items-center gap-3 overflow-x-auto pb-1 scrollbar-hide">
             <span className="text-white/30 text-xs font-mono shrink-0">Life Timeline</span>
@@ -150,7 +209,8 @@ export default function Hero() {
             ))}
           </div>
         </div>
-      </div>
+      </div> */}
+
     </section>
   );
 }
